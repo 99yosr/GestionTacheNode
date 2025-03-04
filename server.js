@@ -6,12 +6,15 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const taskRoutes = require('./controllers/TaskController'); // Ensure this is the correct path
 const projectRoutes = require('./controllers/ProjectController');
+const authRoutes = require('./controllers/AuthController');
 
 
 
 app.use('/tasks', taskRoutes); 
 
 app.use('/projects', projectRoutes);
+
+app.use('/auth', authRoutes);
 
 
 mongoose.connect(process.env.MONGO_URI).then(()=>{
